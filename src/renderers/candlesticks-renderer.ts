@@ -77,7 +77,7 @@ export class PaneRendererCandlesticks implements IPaneRenderer {
 		let prevWickColor = '';
 
 		let wickWidth = Math.min(Math.floor(pixelRatio), Math.floor(this._data.barSpacing * pixelRatio));
-		wickWidth = Math.max(Math.floor(pixelRatio), Math.min(wickWidth, this._barWidth));
+		wickWidth = Math.max(Math.floor(pixelRatio), Math.min(wickWidth, this._barWidth)) * 2;
 		const wickOffset = Math.floor(wickWidth * 0.5);
 
 		let prevEdge: number | null = null;
@@ -113,7 +113,7 @@ export class PaneRendererCandlesticks implements IPaneRenderer {
 	}
 
 	private _calculateBorderWidth(pixelRatio: number): number {
-		let borderWidth = Math.floor(Constants.BarBorderWidth * pixelRatio);
+		let borderWidth = Math.floor(Constants.BarBorderWidth * pixelRatio) * 2;
 		if (this._barWidth <= 2 * borderWidth) {
 			borderWidth = Math.floor((this._barWidth - 1) * 0.5);
 		}
